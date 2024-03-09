@@ -3,7 +3,7 @@ package client
 import (
 	"context"
 
-	"github.com/rs/zerolog/log"
+	// "github.com/rs/zerolog/log"
 )
 
 // eventSubscription is a struct to hold the subscription to a topic
@@ -46,7 +46,6 @@ func (es *eventSubscription) processEvents() {
         case <-es.ctx.Done():
             return
         case result := <-es.ch:
-            log.Info().Msgf("Got event: %v, my sub id: %s", result, es.id)
             if result.Id == es.subId && result.Event != nil {
                 go es.callback(result.Event)
             }
