@@ -12,3 +12,4 @@
 *.out
 go-ha-client
 debug
+main
